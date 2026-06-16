@@ -1,0 +1,8 @@
+# build skripty a zdroje (nepublikovat)
+_*.py
+_*.html
+omni/_*.html
+__pycache__/
+*.bak
+Web-kopie/
+.DS_Store

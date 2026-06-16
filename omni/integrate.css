@@ -1,0 +1,37 @@
+/* Propojení hlavního webu na vino.omnimedia.cz */
+
+/* 1) Blok "Jste vinařství?" (samostatná self-selecting sekce) */
+.omni-vinari-band{background:#fdeef2;font-family:'Montserrat',Arial,sans-serif}
+.omni-vinari-band .inner{max-width:1080px;margin:0 auto;padding:54px 40px;
+  display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:space-between}
+.omni-vinari-band .eyebrow{display:block;color:#e1003c;font-size:14px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
+.omni-vinari-band h3{font-size:clamp(22px,2.4vw,30px);font-weight:800;color:#1c1c1c;margin:0 0 8px;line-height:1.2}
+.omni-vinari-band p{margin:0;color:#4a4a4a;font-size:16px;max-width:640px}
+.omni-vinari-band .btn{flex-shrink:0;display:inline-block;background:#e1003c;color:#fff;
+  font-size:16px;font-weight:700;padding:16px 34px;border-radius:50px;text-decoration:none;white-space:nowrap;
+  transition:background .2s}
+.omni-vinari-band .btn:hover{background:#b3002f;color:#fff}
+@media(max-width:760px){.omni-vinari-band .inner{flex-direction:column;text-align:center}}
+
+/* 2) CTA na hero slidu "Vína z Moravy" */
+.omni-hero-cta{position:absolute;left:max(28px,8vw);bottom:17vh;z-index:60;
+  display:inline-block;background:#e1003c;color:#fff;font-family:'Montserrat',Arial,sans-serif;
+  font-weight:700;font-size:16px;padding:14px 30px;border-radius:50px;text-decoration:none;
+  box-shadow:0 10px 30px rgba(225,0,60,.25);transition:background .2s,transform .2s}
+.omni-hero-cta:hover{background:#b3002f;color:#fff;transform:translateY(-2px)}
+
+/* 3) Odkaz v patičce/kontaktech */
+.omni-vinari-foot{font-family:'Montserrat',Arial,sans-serif;text-align:center;
+  font-size:15px;color:#7a7a7a;padding:8px 20px 36px}
+.omni-vinari-foot a{color:#e1003c;font-weight:700;text-decoration:none}
+.omni-vinari-foot a:hover{text-decoration:underline}
+
+/* 4) Položka v menu (zvýraznění) */
+.omni-vinari-item > a{color:#e1003c !important}
+
+/* Jazykový přepínač (TranslatePress): dropdown neuskakuje doleva.
+   Napevno daná šířka 200px + zarovnání vpravo způsobovala posun – necháme kontejner podle obsahu. */
+.trp-language-switcher{width:auto !important;min-width:0 !important}
+.trp-language-switcher:hover .trp-ls-shortcode-language,
+.trp-language-switcher:focus .trp-ls-shortcode-language{left:0 !important;right:auto !important}

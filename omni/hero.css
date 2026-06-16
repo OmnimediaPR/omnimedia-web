@@ -1,0 +1,63 @@
+/* Čistý editovatelný hero (nahrazuje Depicter). Vše scoped pod .omni-hero. */
+.omni-hero{--hh:90px;position:relative;min-height:100vh;overflow:hidden;background:#fff;
+  font-family:'Montserrat',Arial,sans-serif}
+.omni-hero *{box-sizing:border-box}
+.omni-hero .slides{position:relative;min-height:100vh}
+.omni-hero .slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  opacity:0;z-index:1;pointer-events:none;transition:opacity .5s cubic-bezier(.2,.7,.2,1)}
+.omni-hero .slide.active{opacity:1;z-index:2;pointer-events:auto;transition:opacity .25s}
+
+/* text */
+.omni-hero .slide-text{position:relative;z-index:3;padding:var(--hh) 20px 0 max(28px,8vw);max-width:34vw}
+.omni-hero .eyebrow{color:var(--c);font-size:clamp(12px,1vw,15px);font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;margin:0 0 16px}
+.omni-hero h2.h{font-size:clamp(30px,3.8vw,72px);line-height:1.12;letter-spacing:-1.2px;color:#1c1c1c;
+  font-weight:800;margin:0}
+.omni-hero .accent{color:var(--c)}
+.omni-hero .lead{margin:20px 0 0;font-size:clamp(15px,1.25vw,18px);color:#7a7a7a;max-width:30vw}
+.omni-hero .lead strong{color:#1c1c1c}
+.omni-hero .cta{display:inline-block;margin-top:26px;background:var(--c);color:#fff;font-weight:700;
+  font-size:clamp(15px,1.2vw,17px);padding:14px 32px;border-radius:50px;text-decoration:none;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);transition:transform .2s,filter .2s}
+.omni-hero .cta:hover{transform:translateY(-2px);filter:brightness(.92);color:#fff}
+
+/* kruh: barevný disk + obrázek vsazený (~80 %) + pill spojky */
+.omni-hero .slide-visual{position:relative;height:100%}
+.omni-hero .circle{position:absolute;top:50%;left:1vw;--d:min(46vw,880px);
+  width:var(--d);height:var(--d);border-radius:50%;background:var(--c);transform:translateY(-50%)}
+.omni-hero .circle>img{position:absolute;top:10.2%;left:10.2%;width:79.6%;height:79.6%;
+  border-radius:50%;object-fit:cover;z-index:2}
+.omni-hero .circle .p{display:none}  /* bez výstupků – čistý prstenec */
+
+/* nájezdy prvků (plynulé „expo", bez přestřelení – tvary jedou s kruhem jako celek) */
+.omni-hero .eyebrow{opacity:0;transform:translateX(-120px);
+  transition:opacity .9s ease,transform 1s cubic-bezier(.16,1,.3,1)}
+.omni-hero h2.h{opacity:0;transform:translateY(90px);
+  transition:opacity 1s ease,transform 1.15s cubic-bezier(.16,1,.3,1)}
+.omni-hero .lead{opacity:0;transform:translateY(34px);
+  transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
+.omni-hero .cta{opacity:0;transform:translateY(26px);
+  transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
+.omni-hero .circle{opacity:0;transform:translateY(-50%) translateX(-90px) scale(.5)}
+.omni-hero .slide.active .circle{opacity:1;transform:translateY(-50%);
+  transition:opacity .9s ease,transform 1.2s cubic-bezier(.34,1.32,.5,1) .05s}
+.omni-hero .slide.active .eyebrow{opacity:1;transform:none;transition-delay:.18s}
+.omni-hero .slide.active h2.h{opacity:1;transform:none;transition-delay:.32s}
+.omni-hero .slide.active .lead{opacity:1;transform:none;transition-delay:.5s}
+.omni-hero .slide.active .cta{opacity:1;transform:none;transition-delay:.64s}
+
+/* šipky */
+.omni-hero .arrows{position:absolute;left:max(28px,8vw);bottom:6vh;display:flex;gap:14px;z-index:5}
+.omni-hero .arrows button{width:46px;height:46px;border:0;background:none;cursor:pointer;color:#1c1c1c;
+  display:flex;align-items:center;justify-content:center;transition:color .2s,transform .2s}
+.omni-hero .arrows button:hover{color:var(--c);transform:scale(1.12)}
+.omni-hero .arrows svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round}
+
+@media(max-width:980px){
+  .omni-hero .slide{grid-template-columns:1fr;text-align:center}
+  .omni-hero .slide-text{max-width:none;padding:var(--hh) 28px 0;margin:0 auto}
+  .omni-hero .lead{max-width:none;margin-left:auto;margin-right:auto}
+  .omni-hero .slide-visual{display:none}
+  .omni-hero .arrows{left:50%;transform:translateX(-50%)}
+}

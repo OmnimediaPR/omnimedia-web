@@ -1,0 +1,23 @@
+/* Kontaktní formulář (doplněk ke kopii Omnimedia) */
+.omni-form-wrap{max-width:760px;margin:0 auto 56px;padding:0 24px;
+  font-family:'Montserrat',Arial,sans-serif}
+.omni-form-wrap h3{font-size:26px;font-weight:800;color:#1c1c1c;text-align:center;margin:0 0 6px}
+.omni-form-wrap .omni-sub{text-align:center;color:#7a7a7a;font-size:15px;margin:0 0 26px}
+.omni-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.omni-form .full{grid-column:1 / -1}
+.omni-form label{display:block;font-size:13px;font-weight:700;color:#1c1c1c;margin:0 0 6px}
+.omni-form input,.omni-form textarea{width:100%;font-family:inherit;font-size:15px;color:#1c1c1c;
+  background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:13px 15px;outline:none;
+  transition:border-color .2s,box-shadow .2s}
+.omni-form input:focus,.omni-form textarea:focus{border-color:#e1003c;box-shadow:0 0 0 3px rgba(225,0,60,.12)}
+.omni-form textarea{min-height:130px;resize:vertical}
+.omni-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.omni-form .submit-row{grid-column:1 / -1;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.omni-form button{background:#e1003c;color:#fff;font-family:inherit;font-size:16px;font-weight:700;
+  border:0;border-radius:50px;padding:15px 38px;cursor:pointer;transition:background .2s}
+.omni-form button:hover{background:#b3002f}
+.omni-form button:disabled{opacity:.55;cursor:default}
+.omni-msg{font-size:15px;font-weight:600}
+.omni-msg.ok{color:#1a9d4a}
+.omni-msg.err{color:#e1003c}
+@media(max-width:600px){.omni-form{grid-template-columns:1fr}}
