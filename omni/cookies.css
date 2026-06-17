@@ -1,0 +1,46 @@
+/* Cookie lišta (UI). Zatím bez napojení na měření – jen ukládá volbu a vysílá událost. */
+.omni-cc{position:fixed;left:0;right:0;bottom:0;z-index:99998;
+  font-family:'Montserrat',Arial,sans-serif;background:#fff;border-top:1px solid #ececec;
+  box-shadow:0 -12px 34px rgba(0,0,0,.09);
+  transform:translateY(115%);transition:transform .42s cubic-bezier(.22,1,.36,1)}
+.omni-cc.show{transform:translateY(0)}
+.omni-cc__in{max-width:1180px;margin:0 auto;padding:20px 28px;
+  display:flex;align-items:center;gap:14px 28px;flex-wrap:wrap}
+.omni-cc__txt{flex:1 1 360px;margin:0;font-size:14px;line-height:1.55;color:#4a4a4a}
+.omni-cc__txt strong{color:#1c1c1c}
+.omni-cc__btns{display:flex;gap:10px;flex-wrap:wrap}
+.omni-cc__btn{font-family:inherit;font-size:14px;font-weight:700;border-radius:50px;
+  padding:12px 26px;cursor:pointer;border:1px solid #e1003c;white-space:nowrap;
+  transition:background .2s,color .2s}
+.omni-cc__btn--ghost{background:#fff;color:#e1003c}
+.omni-cc__btn--ghost:hover{background:#fde9ef}
+.omni-cc__btn--solid{background:#e1003c;color:#fff}
+.omni-cc__btn--solid:hover{background:#b3002f}
+
+/* panel s nastavením kategorií */
+.omni-cc__set{display:none;flex-basis:100%;border-top:1px solid #eee;margin-top:4px;padding-top:14px}
+.omni-cc.open .omni-cc__set{display:block}
+.omni-cc__row{display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-bottom:1px solid #f4f4f4}
+.omni-cc__row:last-of-type{border-bottom:0}
+.omni-cc__row h4{margin:0 0 3px;font-size:14px;font-weight:700;color:#1c1c1c}
+.omni-cc__row p{margin:0;font-size:13px;line-height:1.45;color:#7a7a7a}
+.omni-cc__settxt{flex:1}
+
+/* přepínač */
+.omni-cc__sw{position:relative;flex-shrink:0;width:46px;height:26px;margin-top:1px}
+.omni-cc__sw input{position:absolute;opacity:0;width:0;height:0}
+.omni-cc__sw label{position:absolute;inset:0;background:#cfcfcf;border-radius:50px;cursor:pointer;transition:background .2s}
+.omni-cc__sw label::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;
+  background:#fff;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.omni-cc__sw input:checked + label{background:#e1003c}
+.omni-cc__sw input:checked + label::after{transform:translateX(20px)}
+.omni-cc__sw input:disabled + label{opacity:.55;cursor:not-allowed}
+.omni-cc__save{margin-top:14px;text-align:right}
+
+@media(max-width:600px){
+  .omni-cc__in{padding:16px 16px 18px}
+  .omni-cc__btns{width:100%}
+  .omni-cc__btn{flex:1;padding:12px 14px}
+  .omni-cc__save{text-align:center}
+  .omni-cc__save .omni-cc__btn{flex:none;width:100%}
+}
