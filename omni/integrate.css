@@ -35,3 +35,19 @@
 .trp-language-switcher{width:auto !important;min-width:0 !important}
 .trp-language-switcher:hover .trp-ls-shortcode-language,
 .trp-language-switcher:focus .trp-ls-shortcode-language{left:0 !important;right:auto !important}
+
+/* Vlastní overlay menu (spíná „MENU"/hamburger) */
+.omni-nav{position:fixed;inset:0;z-index:99999;background:rgba(255,255,255,.98);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+  font-family:'Montserrat',Arial,sans-serif}
+.omni-nav.open{opacity:1;visibility:visible}
+.omni-nav ul{list-style:none;margin:0;padding:0;text-align:center}
+.omni-nav li{margin:12px 0}
+.omni-nav a{font-size:clamp(24px,4vw,42px);font-weight:800;color:#1c1c1c;text-decoration:none;letter-spacing:-.5px;transition:color .2s}
+.omni-nav a:hover{color:#e1003c}
+.omni-nav a.hl{color:#e1003c}
+.omni-nav-close{position:absolute;top:28px;right:40px;width:46px;height:46px;border:0;background:none;cursor:pointer}
+.omni-nav-close::before,.omni-nav-close::after{content:"";position:absolute;left:7px;top:22px;width:32px;height:3px;background:#1c1c1c}
+.omni-nav-close::before{transform:rotate(45deg)}
+.omni-nav-close::after{transform:rotate(-45deg)}
