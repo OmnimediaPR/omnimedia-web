@@ -43,18 +43,22 @@
 .trp-language-switcher .trp-ls-shortcode-language > a{padding:4px 7px !important;font-size:14px !important;border-radius:3px}
 .trp-language-switcher .trp-ls-shortcode-disabled-language{opacity:.45;font-weight:700;cursor:default}
 
-/* Vlastní overlay menu (spíná „MENU"/hamburger) */
-.omni-nav{position:fixed;inset:0;z-index:99999;background:rgba(255,255,255,.98);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+/* Vlastní menu — subtilní řádek vysouvající se pod horní okraj (spíná „MENU"/hamburger) */
+.omni-nav{position:fixed;left:0;right:0;top:80px;z-index:9000;overflow:hidden;
+  visibility:hidden;transition:visibility 0s linear .34s;
   font-family:'Montserrat',Arial,sans-serif}
-.omni-nav.open{opacity:1;visibility:visible}
-.omni-nav ul{list-style:none;margin:0;padding:0;text-align:center}
-.omni-nav li{margin:12px 0}
-.omni-nav a{font-size:clamp(24px,4vw,42px);font-weight:800;color:#1c1c1c;text-decoration:none;letter-spacing:-.5px;transition:color .2s}
+.omni-nav.open{visibility:visible;transition:visibility 0s}
+.omni-nav .inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:6px 30px;padding:13px 24px;background:#fff;border-bottom:1px solid #ececec;
+  box-shadow:0 12px 26px rgba(0,0,0,.07);
+  transform:translateY(-100%);transition:transform .34s cubic-bezier(.22,1,.36,1)}
+.omni-nav.open .inner{transform:translateY(0)}
+.omni-nav a{position:relative;font-size:15px;font-weight:600;color:#1c1c1c;
+  text-decoration:none;letter-spacing:.2px;padding:6px 2px;transition:color .2s}
+.omni-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;
+  background:#e1003c;transition:right .25s ease}
 .omni-nav a:hover{color:#e1003c}
-.omni-nav a.hl{color:#e1003c}
-.omni-nav-close{position:absolute;top:28px;right:40px;width:46px;height:46px;border:0;background:none;cursor:pointer}
-.omni-nav-close::before,.omni-nav-close::after{content:"";position:absolute;left:7px;top:22px;width:32px;height:3px;background:#1c1c1c}
-.omni-nav-close::before{transform:rotate(45deg)}
-.omni-nav-close::after{transform:rotate(-45deg)}
+.omni-nav a:hover::after{right:0}
+.omni-nav a.hl{color:#e1003c;font-weight:700}
+.omni-nav a.hl::after{display:none}
+@media(max-width:600px){.omni-nav .inner{gap:2px 18px;padding:10px 16px}.omni-nav a{font-size:14px}}

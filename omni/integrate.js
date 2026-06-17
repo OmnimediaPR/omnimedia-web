@@ -23,18 +23,28 @@
 
   function customMenu() {
     if (document.querySelector('.omni-nav')) return;
+    var header = document.querySelector('.et_pb_section--with-menu')
+              || document.querySelector('.et_pb_section_0_tb_header')
+              || document.querySelector('header.et-l--header');
     var ov = document.createElement('nav');
     ov.className = 'omni-nav';
-    var html = '<button class="omni-nav-close" aria-label="' + T.close + '"></button><ul>';
-    T.nav.forEach(function (l) { html += '<li><a href="' + l[0] + '">' + l[1] + '</a></li>'; });
-    html += '<li><a class="hl" href="' + MICRO + '">' + T.vinari + '</a></li></ul>';
+    var html = '<div class="inner">';
+    T.nav.forEach(function (l) { html += '<a href="' + l[0] + '">' + l[1] + '</a>'; });
+    html += '<a class="hl" href="' + MICRO + '">' + T.vinari + '</a></div>';
     ov.innerHTML = html;
     document.body.appendChild(ov);
-    function open() { ov.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function close() { ov.classList.remove('open'); document.body.style.overflow = ''; }
-    ov.querySelector('.omni-nav-close').addEventListener('click', close);
+
+    var isOpen = false;
+    function place() { ov.style.top = (header ? Math.max(0, Math.round(header.getBoundingClientRect().bottom)) : 80) + 'px'; }
+    function open() { place(); ov.classList.add('open'); isOpen = true; }
+    function close() { ov.classList.remove('open'); isOpen = false; }
+    function toggle() { isOpen ? close() : open(); }
+
     ov.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function () { if (isOpen) place(); });
+    // klik mimo lištu ji zavře (spínač má stopPropagation, takže se sám nezavře)
+    document.addEventListener('click', function (e) { if (isOpen && !ov.contains(e.target)) close(); });
 
     // spínače: Divi hamburger + textový modul "MENU"
     var trig = [];
@@ -44,7 +54,7 @@
     });
     trig.forEach(function (e) {
       e.style.cursor = 'pointer';
-      e.addEventListener('click', function (ev) { ev.preventDefault(); ev.stopPropagation(); open(); });
+      e.addEventListener('click', function (ev) { ev.preventDefault(); ev.stopPropagation(); toggle(); });
     });
   }
 
