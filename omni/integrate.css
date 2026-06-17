@@ -30,11 +30,18 @@
 /* 4) Položka v menu (zvýraznění) */
 .omni-vinari-item > a{color:#e1003c !important}
 
-/* Jazykový přepínač (TranslatePress): dropdown neuskakuje doleva.
-   Napevno daná šířka 200px + zarovnání vpravo způsobovala posun – necháme kontejner podle obsahu. */
-.trp-language-switcher{width:auto !important;min-width:0 !important}
+/* Jazykový přepínač: místo vrtkavého hover dropdownu (přeskakoval) ukážeme obě mutace rovnou inline. */
+.trp-language-switcher{width:auto !important;min-width:0 !important;height:auto !important;overflow:visible !important}
+.trp-language-switcher > div{border:0 !important;background:none !important;background-image:none !important;padding:0 !important}
+.trp-language-switcher .trp-ls-shortcode-current-language{display:none !important}
+.trp-language-switcher .trp-ls-shortcode-language,
 .trp-language-switcher:hover .trp-ls-shortcode-language,
-.trp-language-switcher:focus .trp-ls-shortcode-language{left:0 !important;right:auto !important}
+.trp-language-switcher:focus .trp-ls-shortcode-language{
+  position:static !important;visibility:visible !important;display:inline-flex !important;gap:4px;
+  height:auto !important;max-height:none !important;min-height:0 !important;overflow:visible !important;
+  padding:0 !important;left:auto !important;top:auto !important}
+.trp-language-switcher .trp-ls-shortcode-language > a{padding:4px 7px !important;font-size:14px !important;border-radius:3px}
+.trp-language-switcher .trp-ls-shortcode-disabled-language{opacity:.45;font-weight:700;cursor:default}
 
 /* Vlastní overlay menu (spíná „MENU"/hamburger) */
 .omni-nav{position:fixed;inset:0;z-index:99999;background:rgba(255,255,255,.98);
