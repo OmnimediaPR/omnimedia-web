@@ -25,7 +25,7 @@
 
 /* kruh: barevný disk + obrázek vsazený (~80 %) + pill spojky */
 .omni-hero .slide-visual{position:relative;height:100%}
-.omni-hero .circle{position:absolute;top:50%;left:1vw;--d:min(46vw,880px);
+.omni-hero .circle{position:absolute;top:50%;left:1vw;--d:min(39vw,700px);
   width:var(--d);height:var(--d);border-radius:50%;background:var(--c);transform:translateY(-50%)}
 .omni-hero .circle>img{position:absolute;top:10.2%;left:10.2%;width:79.6%;height:79.6%;
   border-radius:50%;object-fit:cover;z-index:2}
